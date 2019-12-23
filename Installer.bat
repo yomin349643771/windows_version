@@ -10,8 +10,4 @@ cd installsoft
 
 call nginx_start.bat
 
-cd ..
-
 call nginx_write.bat
-
-call nginx_restart.bat
