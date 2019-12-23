@@ -1,0 +1,50 @@
+textarea.source{
+  font-size: 18px;
+  width: 500px;
+  height: 409px;
+  color: #000;                    /*テキストエリアのコード色*/
+  /* background-color: transparent; */
+  background-color: white;
+  padding: 5px;
+  line-height: 22px;
+  border: 6px solid #000;   /* #75BAFF */
+  display: inline;
+  float:left;
+  clear:both;
+  resize: none;
+}
+
+body{
+  background: #fff;
+}
+#terminal{
+  float:right;
+  margin-left: 5px;
+  /* width:300px; */
+  font-size-adjust: 150%;
+  /* height:400px; */
+  display: block;
+}
+
+.square_btn_1{
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.5em 1.5em;
+  text-decoration: none;
+  color: #D32536;
+  background: #000;
+  transition: .4s;
+}
+.square_btn_1:hover {
+    background: #D32536;
+    color: white;
+}
+
+.wrapper{
+	display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+}

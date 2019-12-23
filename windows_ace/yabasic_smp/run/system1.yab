@@ -1,0 +1,6 @@
+#!./yabasic
+
+input "please enter the name of a directory : " d$
+print
+print "this is the contents of the '"+d$+"' : "
+print system$("dir "+ d$)

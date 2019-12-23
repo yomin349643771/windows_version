@@ -1,0 +1,404 @@
+/* 将来的にはwidthやheightなどの細かい指定は大変なのでbootstrapの使用を推奨する(bootstrapを使用した際は今までの概念が崩れるので時間かかるけど１つ１つ見直そう) */
+body {
+  background-color: #C0C0C0;
+  margin: 0;
+  padding: 0;
+}
+.title{
+  height:4vw;
+}
+.gazo1{
+  margin-top: 3vw;
+}
+/* 猫の横のふきだし */
+.moji1{
+  /* position: absolute; */
+  z-index: auto;
+  font-size: 2.2vmin;
+  color: black;
+}
+.speech-bubble {
+  position: absolute;
+  /* margin: .4vw auto; */
+  padding: 0.5vw;
+  width: 12vw;
+  height: 6vw;
+  /* left: 38vw; */
+  margin-top: -10vw;
+  border-radius: .25vw; /*角の丸み*/
+  transform: rotate(-4deg) rotateY(15deg);
+  background: #629bdd;
+  /* font: Century Gothic, Verdana, sans-serif; */
+  /* text-align: center; */
+}
+.speech-bubble:before, .speech-bubble:after {
+  position: absolute;
+  z-index: -1;
+  content: '';
+}
+.speech-bubble:after {
+  top: 0; right: 0; bottom: 0; left: 0;
+  border-radius: inherit;
+  transform: rotate(2deg) translate(.35vw, -.15vw) scale(1.02);
+  background: #f4fbfe;
+}
+.speech-bubble:before {
+  border: solid 0 transparent;
+  border-right: solid 3.5vw #f4fbfe;
+  border-bottom: solid .25vw #629bdd;
+  bottom: .25vw; left: 1.25vw;
+  width: 0; height: 1vw;
+  transform: rotate(145deg) skewX(78deg);
+}
+/* ここまで */
+.tyuou{
+  float: left;
+}
+
+textarea.source{
+  font-size: 1.8vmin;
+  width: 60vmin;
+  height: 60vh;
+  color: #000;                    /*テキストエリアのコード色*/
+  /* background-color: transparent; */
+  background-color: white;
+  padding: 5px;
+  line-height: 22px;
+  border: 6px solid #000;   /* #75BAFF */
+  display: inline;
+  float:left;
+  clear:both;
+}
+/* スクロールバー非表示(bcralnit側、このclass名はブラウザの要素機能からわかる。元のindex3.htmlにはないので注意) */
+.bcr_number{
+  overflow: scroll;
+  -ms-overflow-style:none;/*IE用*/
+  scrollbar-width: none;/*firefox用(将来的にはなくなるらしい)*/
+}
+.bcr_number::-webkit-scrollbar{
+  display:none;/*chrome,safari用*/
+}
+.hint556{
+  font-size: 1.5vmin;
+  padding: 1vw;
+  margin-left: 0.5vw;
+  width: 46vmin;
+  height: 59vh;
+  color:#33cc66;
+  background-color: #330000;
+  border: 0.9vh solid #990033;
+  content: "";
+}
+.wrapper{
+  display: flex;
+}
+.yoko{
+  display: flex;
+}
+
+.ads{
+  background-color: transparent;
+}
+/* xtermのスタイル変更 */
+#terminal{
+  padding:1.5vw;
+  font-size-adjust: 150%;
+  height:53vh;
+  top:0.5vw;
+}
+.xterm{
+  background-color: #e8ddbd;
+  box-shadow: inset 0 0 45px rgba(204, 186, 136,1), 0 2px 2px #ccc;
+}
+.title-tape3 {
+ position: absolute;
+ top: -3vmin;
+ left: 50px;
+ padding: 10px 20px;
+ color: #555555; /*タイトル色*/
+ font-weight: bold;
+ background-color: rgba(255,255,255,.4);
+ border-left: 2px dotted rgba(0,0,0,.1);
+ border-right: 2px dotted rgba(0,0,0,.1);
+ box-shadow: 0 0 5px rgba(0,0,0,0.2);
+ transform: rotate(-5deg);
+}
+/* 犬の画像のスタイル変更 */
+.irasuto1{
+  width:6vw;
+  height:8vh;
+  position: absolute;
+  /* position:relative; */
+  /* left: 720px; */
+
+
+}
+/* 犬の横の吹き出しのスタイル変更 */
+.input_in{
+  width:25vw;
+  height: 20vh;
+  background: #88b7d5;
+  position:relative;
+  border: 4px solid #5858FA;
+  margin-left: 2vw;
+  top:90px;
+  /* bottom:50px;
+  top:470px;
+  right:730px; */
+  font-size: 2vmin;
+  padding:0.5vw;
+}
+.input_in:before{
+	content: "";
+	position: absolute;
+	top: -17px;
+  left:12px;
+  border-color: rgba(194, 225, 245, 0);
+  border-bottom: 15px solid #5858FA;
+  border-right: 15px solid transparent;
+  border-left: 15px solid transparent;
+	/* border: 15px solid transparent;
+  border-right-color: #5858FA;
+	border-right: 15px solid #81F7D8; */
+}
+
+/*黒板のようなもののスタイルなど*/
+.wakaru{
+  width: 30vw;/*黒板みたいなやつの範囲を調整*/
+}
+.osieru{
+  /* width: 30vw; */
+  height:47vh;
+  overflow: hidden;
+   /*padding: 10px; margin: 10px;*/
+  content: "A";                  /*改行させるため*/
+  white-space: pre;
+  word-wrap: break-word;
+}
+.kokuban{
+  font-family: HuiFontP109;
+  color: #fff;
+  background-color: #114400;
+  margin: 0.2vh 0 1vh 0;
+  padding: 1vh 23vh 40vh;
+  border: 0.9vh solid #a60;
+  border-radius: 0.3vh;
+  box-shadow: 0.2vh 0.2vh 0.4vh #666, 0.2vh 0.2vh 0.2vh #111 inset;
+  text-shadow: 0px 0px 2px #000;
+  line-height: 1.9;
+}
+.osieru p{
+  font-size:1.5vmin;
+  color:white;
+  margin:-4vh 5vh 5vh;
+}
+
+/*pointのスタイルなど*/
+.point{
+  width: 60vh;
+  height:50vh;
+  padding: 0.5vh;
+  margin: 2vh;
+  content: "A";                  /*改行させるため*/
+  white-space: pre;
+  background: #f1f1f1;
+  box-shadow: 0 0.2vh 0.4vh rgba(0, 0, 0, 0.22);
+}
+.teach{
+  float:left;
+  width:30vw;
+  height: 85vh;
+  /* display: flex; */
+}
+.bord{
+    border: 0.3vh solid #da4033;
+    border-radius: 0.4vh;
+    margin:4vh -2.4vh;
+    padding: 16.3vh 27.8vh 32.1vh;
+    top:14vh;
+    position: relative;
+}
+.bord::before{
+    font-size:2vmin;
+    background-color: #da4033;
+    color: #f1f1f1;
+    content: "POINT";
+    font-weight: bold;
+    left: 0vh;
+    padding: 0 .7vh;
+    position: absolute;
+    top: 0vh;
+}
+.point p {
+  font-size: 2vmin;
+  margin: -1vh 1vh 0.5vh;
+}
+/* イラスト(先生) */
+.irasuto2{
+  width:10vh;
+  height:10vh;
+  padding-left: 40vh;
+  position: absolute;
+}
+/* 横並びにする */
+.main3{
+  display: flex;
+}
+.purog{
+  width: 670px;
+  height:700px;
+  padding: 0px;
+  margin: 0px 20px;
+  content: "A";                  /*改行させるため*/
+  white-space: pre;
+  background: #f1f1f1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+  overflow: scroll;
+}
+.purog p {
+  font-size: 25px;
+  margin: -10px 10px 5px;
+}
+.flow1{
+  width:30px;
+  position: absolute;
+  left:40px;
+}
+/* ------------------------------------------------------------------------------- */
+.cp_navi {
+	background-color: #444;
+	/* border: 1px solid #dedede; */
+	/* border-radius: 4px; */
+	box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
+	color: #888888;
+	display: block;
+	/* margin: 1em 1%; */
+	/* margin-left: 120px; */
+	/* overflow: hidden; */
+  display: flex;
+  width:100%;
+  position: fixed;
+  z-index: 100;
+  margin: 0;
+  padding: 0;
+}
+
+.cp_moji{
+  font-size: 1vmax;
+  color:#fff;
+  line-height: 56px;
+  margin-left: 3vw;
+}
+.menunu{
+  font-size: 1vmax;
+}
+.cp_navi:before, .cp_navi:after{
+  content: "";
+  display: table;
+}
+.cp_navi:after{
+  clear: both;
+}
+.cp_navi li {
+	display: inline-block;/*横にする*/
+	list-style-type: none;/*マーカーなし*/
+  margin-left: 1vw;
+	/* -webkit-transition: all 0.2s;
+	        transition: all 0.2s; */
+}
+
+/* Menu01のところ */
+.cp_navi > li > a {
+	color: #aaaaaa;
+	display: block;
+	line-height: 56px;
+	padding: 0 10px;
+	text-decoration: none;/*装飾なし*/
+}
+/* マウスホバーで背景を変える */
+.cp_navi > li:hover {
+	background-color: rgb(218, 60, 65);
+}
+/* マウスホバーで文字色を変える */
+.cp_navi > li:hover > a {
+	color: rgb( 255, 255, 255 );
+}
+.cp_navi li div{
+  width: 100%;
+  position: absolute;
+  background-color: #c0c0c0;
+}
+.cp_navi li div.menunu1{
+  /* margin-left: -17.3vw; */
+}
+.cp_navi li div.menunu2{
+  /* margin-left: -24.1vw; */
+}
+.cp_navi li div.menunu3{
+  /* margin-left: -34vw; */
+}
+.cp_navi li div ul{
+  list-style: none;
+  position: absolute;
+  /* top: 100%; */
+  /* left: 0; */
+  /* margin: 0; */
+  /* padding: 0; */
+  background-color: #5b5b5c;
+  width: 100%;
+}
+/* .cp_navi > ul > li:hover > a > .caret {
+	border-top-color: rgb( 255, 255, 255 );
+} */
+/* サブメニュー */
+/* .cp_navi > li > div {
+	background-color: rgb(218, 60, 65);
+	border-top: 0;
+	border-radius: 0 0 4px 4px;
+	box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
+	display: none;
+	margin: 0;
+	opacity: 0;
+	position: absolute;
+	width: 100%;
+	visibility: hidden;
+	-webkit-transiton: opacity 0.2s;
+	       transition: opacity 0.2s;
+} */
+/* マウスホバーでサブメニューを表示 */
+/* .cp_navi > li:hover > div {
+	display: block;
+	opacity: 1;
+	visibility: visible;
+} */
+/* サブメニューの中身 */
+.cp_navi > li > div ul > li > a {
+	color: #000;
+	display: block;
+	padding: 12px 24px;
+	text-decoration: none;
+}
+/* サブメニューの背景色 */
+/* .cp_navi > li > div ul > li:hover > a {
+	background-color: rgba( 255, 255, 255, 0.1);
+} */
+#flip >li{
+  perspective:100%;
+}
+#flip li div{
+  visibility: hidden;
+  transform: rotateX(-90deg);
+  transform-origin: 50% 0;
+  transition: .3s;
+}
+#flip li:hover div{
+  visibility: visible;
+  transform: rotateX(0);
+}
+
+.mermaid{
+  -webkit-user-drag: element;
+}
+#myPaletteDiv .copySection p:nth-child(2) {
+    display:none !important;
+    }

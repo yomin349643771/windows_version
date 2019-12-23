@@ -1,0 +1,11 @@
+#! ./yabasic
+if(a<=1 or a>=4) error "wrong"
+if(a=1)then
+  print "one"
+elsif(a=2)
+  print "two"
+elsif(a=3)
+  print "three"
+else
+  print "four"
+end if

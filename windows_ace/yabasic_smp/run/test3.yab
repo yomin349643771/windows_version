@@ -1,0 +1,10 @@
+foo()
+foo()
+foo()
+sub foo()
+  static a
+  local b
+  a=a+1
+  b=b+1
+  print a,b
+end sub

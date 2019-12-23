@@ -1,0 +1,12 @@
+print "朝ごはんをたべよう"
+print "どっちにする？"
+
+input "白ご飯は1、パンは2を入力してね : " i
+
+if(i=1)then
+print "白ご飯を食べました"
+elsif(i=2)then
+print "パンを食べました"
+else
+print "朝ごはんは食べませんでした"
+endif

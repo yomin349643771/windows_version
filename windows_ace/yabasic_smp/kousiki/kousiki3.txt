@@ -1,0 +1,9 @@
+3.print color文
+
+clear screen
+print color("red") "Hello!!"
+
+色の出力はclear screenが必須です
+またcolorは色の英単語で出力してくれます
+
+次の公式③-1に色の英単語を載せています

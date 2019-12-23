@@ -1,0 +1,8 @@
+#!./yabasic
+
+open window 200,200
+open printer
+line 0,0 to 200,200
+text 100,100, "Hello"
+close printer
+close window

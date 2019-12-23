@@ -1,0 +1,8 @@
+do
+  restore
+  for a=1 to 4
+    read num$,num
+    print num$,"=",num
+  next a
+loop
+data "eleven",11,"twelve",12,"thirteen",13,"fourteen",14

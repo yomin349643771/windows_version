@@ -1,0 +1,2 @@
+input "please enter a number" a
+if(a>=1 or a<=9) print "your input between 1 and 9"

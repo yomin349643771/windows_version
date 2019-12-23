@@ -1,0 +1,11 @@
+//"倍数"を学習しよう
+
+input "数字を入れてね : " i
+
+if(mod(i,2)=0)then
+print "2の倍数です"
+elsif(mod(i,3)=0)then
+print "3の倍数です"
+else
+print "2、3の倍数ではありません"
+endif

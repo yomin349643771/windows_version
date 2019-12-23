@@ -1,0 +1,14 @@
+#!./yabasic
+
+input "Please enter a number between 1 and 4: " a
+if (a <= 0 or a >= 5) error "Wrong, wrong !"
+if(a=1) then
+  print "one"
+elsif(a=2)
+  print "two"
+elsif(a=3)
+  print "three"
+else
+  print "four"
+endif
+
