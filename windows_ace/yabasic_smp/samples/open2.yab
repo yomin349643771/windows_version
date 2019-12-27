@@ -1,0 +1,9 @@
+for a=200 to 400 step 10
+  open window a,a
+  for b=0 to a
+    line 0,b to a,b
+    line b,0 to b,a
+  sleep 0.1
+  next b
+  close window
+next a

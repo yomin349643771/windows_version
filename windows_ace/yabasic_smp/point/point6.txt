@@ -1,0 +1,12 @@
+じつはsource.yabというファイル以外に<br>
+foo.barというファイル名も入っています。<br><br>
+
+open文でfoo.barという名前のファイルを見つけて来ます<br>
+#1でファイル名を短縮しており<br>
+その後のprint文でfoo.barに"Hello!"を書き込んでいます<br><br>
+
+もし、foo.barというファイル名が見つからなかった場合<br>
+while文のerrorでエラーメッセージがでます。<br>
+whileはif文に似た構文と思って下さい。<br>
+もし書き込めたらfoo.barに書き込んだ<br>
+"Hello!"が実行結果にでます。<br>
