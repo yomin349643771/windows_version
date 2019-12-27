@@ -1,0 +1,9 @@
+もう一つの書き方<br><br>
+
+for x=1 to 10 step 1 : for y=1 to 10 step 2<br><br>
+  z = x+y<br><br>
+  print z<br><br>
+next y : next x<br><br>
+
+１行で収めたい場合は:(コロン)をつけます。<br><br>
+nextのxとyの順番に気をつけよう

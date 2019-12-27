@@ -1,0 +1,12 @@
+22.backcolor文
+
+backcolor red$
+clear window
+text 50,50,"hello"
+
+backcolorは背景色をつけます
+色の指定も忘れずに
+
+clear windowというプログラムが
+直後に必要です。こちらも忘れずに！
+

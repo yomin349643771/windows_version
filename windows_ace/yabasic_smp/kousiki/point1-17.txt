@@ -1,0 +1,9 @@
+for a=1 to 10<br>
+  break<br>
+  print "Hi"<br>
+next a<br><br>
+
+switch 1<br>
+case 1:break<br>
+case 2:case 3:print "Hi"<br>
+end switch

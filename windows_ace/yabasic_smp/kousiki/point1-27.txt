@@ -1,0 +1,5 @@
+open window 200,200<br>
+blue$ = "0,0,255"<br>
+backcolor blue$<br>
+clear window<br>
+clear triangle 10,10,20,20,50,30

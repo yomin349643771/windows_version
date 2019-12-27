@@ -1,0 +1,11 @@
+a=10<br><br>
+
+for b=0 to a step 3<br><br>
+
+  print b<br><br>
+
+next b<br><br>
+
+aはfor文で新しく決めてないので必要ない。<br><br>
+
+step 1の場合、省略できます。

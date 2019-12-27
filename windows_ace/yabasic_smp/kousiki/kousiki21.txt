@@ -1,0 +1,8 @@
+21.text文
+
+open window 200,200
+
+text 50,50,"hello"
+
+グラフィックはprint文ではありません。
+text文と座標、入れたい文字列になります。

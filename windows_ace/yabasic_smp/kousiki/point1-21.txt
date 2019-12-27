@@ -1,0 +1,7 @@
+open window 500,200<br>
+for a=1 to 9<br>
+text 50*a,100,"Test"<br>
+next a<br><br>
+
+座標に変数を当てはめると<br>
+自由性が更に増えて楽しめるかもしれません

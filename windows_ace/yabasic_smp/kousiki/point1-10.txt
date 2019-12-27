@@ -1,0 +1,7 @@
+input "a:"a
+input "b:"b
+print a,b
+
+input "a:"a,"b:"b
+print a
+print b

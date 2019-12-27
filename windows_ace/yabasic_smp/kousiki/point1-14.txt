@@ -1,0 +1,10 @@
+input "Please enter a number: " a<br>
+if (a<0) then<br>
+  print "less than 0"<br>
+elseif (a<=10) then<br>
+  print "between 0 and 10"<br>
+elsif (a<=20)<br>
+  print "between 11 and 20"<br>
+else<br>
+  print "over 20"<br>
+endif<br>

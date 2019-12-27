@@ -1,0 +1,8 @@
+こんなこともできる<br><br>
+
+clear screen<br><br>
+input "color input:"a$<br><br>
+print color(a$) "hello"<br><br>
+
+実行した後に色の文字列(redやblueなど)<br>
+をいれてみよう。

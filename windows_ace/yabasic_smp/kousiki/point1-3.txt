@@ -1,3 +1,7 @@
-いろいろ試(ため)してみよう!!
+clear screen
 
--は「ほ」のキーをおしてみよう
+print color("green") "green"
+
+print color("blue") "blue"
+
+print color("white") "white"

@@ -1,0 +1,11 @@
+open window 200,200<br>
+line 10,10 to 10,190<br>
+line 10,190 to 190,190<br>
+new curve<br>
+for a=0 to 360<br>
+  line to 10+a*180/360,100+60*sin(a*pi/180)<br>
+next a<br><br>
+
+本章では学びませんが<br>
+piは円周率のπ<br>
+sinはサイン関数を指します。
