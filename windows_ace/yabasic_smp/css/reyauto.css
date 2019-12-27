@@ -103,8 +103,10 @@ textarea.source{
 #terminal{
   padding:1.5vw;
   font-size-adjust: 150%;
-  height:53vh;
   top:0.5vw;
+}
+.term_class{
+  height:53vh;
 }
 .xterm{
   background-color: #e8ddbd;
@@ -114,7 +116,7 @@ textarea.source{
  position: absolute;
  top: -3vmin;
  left: 50px;
- padding: 10px 20px;
+ padding: 0.9vw 1.4vw;
  color: #555555; /*タイトル色*/
  font-weight: bold;
  background-color: rgba(255,255,255,.4);

@@ -9,7 +9,7 @@
 	 padding: 14px 5px 10px 70px;
 	 border-radius: 22px 22px 22px 22px;
 	 background-image: url("../img/in3.png");
-   background-size: 5vh 5vh; /* 画像サイズ */
+   background-size: 5vw 5vw; /* 画像サイズ */
    background-repeat: no-repeat; /* 繰り返し表示オフ */
  }
 .midasi1:before{

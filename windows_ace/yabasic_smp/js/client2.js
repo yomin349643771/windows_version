@@ -46,6 +46,17 @@ socket.on("data",function(d){                                            　　�
   const error_string= /String/.test(d);     //エラー1つ1つに対して、日本語詳細をだしてみる(新しくエラー文章を見つけたら追加していこう)
   const error_syntax= /syntax/.test(d);     //少し下にあるアラートページでつかっています
   const error_0xff=/0xff/.test(d);
+  const error_elsif=/elsif/.test(d);
+  const error_else=/else/.test(d);
+  const error_endif=/endif/.test(d);
+  const error_color=/colour/.test(d);
+  const error_next=/next/.test(d);
+  const error_match=/'for' and 'next' do not match/.test(d);
+  const error_kagi1=/</.test(d);
+  const error_kagi2=/>/.test(d);
+  const error_loop=/loop/.test(d);
+  const error_window=/Got no window to draw/.test(d);
+  const error_curve=/curve/.test(d);
 
 
   var kode =document.getElementById("textare").value;  //エラーした行を特定(確実じゃない場合がある。原因特定できたらやる)
@@ -120,7 +131,7 @@ socket.on("data",function(d){                                            　　�
         btnClass: 'btn-red',
         'action' : function(){
             console.log("エラー確認しました");
-            document.getElementById("input_in").innerHTML="エラーは"+ '<strong style="font-size: 20px; color:#f00;">'+ kode_num_len+"</strong>" +"<ruby>行目<rt>ぎょうめ</rt></ruby>にあります。";
+            document.getElementById("input_in").innerHTML="エラーは"+ '<strong style="font-size: 20px; color:#f00;">'+ kode_num_len+"</strong>" +"<ruby>行目<rt>ぎょうめ</rt></ruby>にあります。<br>仕様上2.1行目など小数点が出る場合があります。2.1行目ならば2行目のエラーを指しています";
             if(error_string == true){
               document.getElementById("input_in").innerHTML="<ruby>文字列<rt>もじれつ</rt></ruby>がおかしいかもしれません。<ruby>見直<rt>みなお</rt></ruby>しましょう<br>"+"エラーは"+'<strong style="font-size: 20px; color:#f00;">'+ kode_num_len+"</strong>" +"<ruby>行目<rt>ぎょうめ</rt></ruby>にあります。";
             }
@@ -130,13 +141,46 @@ socket.on("data",function(d){                                            　　�
             if(error_0xff == true){
               document.getElementById("input_in").innerHTML="<ruby>文字<rt>もじ</rt></ruby>のどこかが<ruby>全角<rt>ぜんかく</rt></ruby>になっています。<ruby>再確認<rt>さいかくにん</rt></ruby>して<ruby>修正<rt>しゅうせい</rt></ruby>して<ruby>下<rt>くだ</rt></ruby>さい<br>"+"エラーは"+ '<strong style="font-size: 20px; color:#f00;">'+ kode_num_len+"</strong>" +"<ruby>行目<rt>ぎょうめ</rt></ruby>にあります。";
             }
+            if(error_elsif == true){
+              document.getElementById("input_in").innerHTML="elsif文のエラーです。<br>最初のif文のthenのつけ忘れ、elsif文の間違いがあるかもしれません<br>"+"エラーは"+ '<strong style="font-size: 20px; color:#f00;">'+ kode_num_len+"</strong>" +"<ruby>行目<rt>ぎょうめ</rt></ruby>にあります。";
+            }
+            if(error_endif == true){
+              document.getElementById("input_in").innerHTML="end if文のエラーです。<br>最後に書き忘れていませんか？<br>"+"エラーは"+ '<strong style="font-size: 20px; color:#f00;">'+ kode_num_len+"</strong>" +"<ruby>行目<rt>ぎょうめ</rt></ruby>にあります。";
+            }
+            if(error_color == true){
+              document.getElementById("input_in").innerHTML="color文のエラーです。<br>colorの中の色はあっていますか？colorのつづりを間違えていませんか？<br>"+"エラーは"+ '<strong style="font-size: 20px; color:#f00;">'+ kode_num_len+"</strong>" +"<ruby>行目<rt>ぎょうめ</rt></ruby>にあります。";
+            }
+            if(error_next == true){
+              document.getElementById("input_in").innerHTML="next文のエラーです。<br>next文を最後に付け忘れていませんか？<br>"+"エラーは"+ '<strong style="font-size: 20px; color:#f00;">'+ kode_num_len+"</strong>" +"<ruby>行目<rt>ぎょうめ</rt></ruby>にあります。";
+            }
+            if(error_match == true){
+              document.getElementById("input_in").innerHTML="for文のエラーです。<br>変数がfor文とnext文でうまく合っていないようです。確認しましょう。<br>"+"エラーは"+ '<strong style="font-size: 20px; color:#f00;">'+ kode_num_len+"</strong>" +"<ruby>行目<rt>ぎょうめ</rt></ruby>にあります。";
+            }
+            if(error_else == true){
+              document.getElementById("input_in").innerHTML="else文のエラーです。<br>if文の最初にthenのつけ忘れ、else文の間違いがあるかもしれません。<br>"+"エラーは"+ '<strong style="font-size: 20px; color:#f00;">'+ kode_num_len+"</strong>" +"<ruby>行目<rt>ぎょうめ</rt></ruby>にあります。";
+            }
+            if(error_kagi1 == true){
+              document.getElementById("input_in").innerHTML="不等号を書く順番を間違えていませんか？<br>(正)<=(誤)=<<br>"+"エラーは"+ '<strong style="font-size: 20px; color:#f00;">'+ kode_num_len+"</strong>" +"<ruby>行目<rt>ぎょうめ</rt></ruby>にあります。";
+            }
+            if(error_kagi2 == true){
+              document.getElementById("input_in").innerHTML="不等号を書く順番を間違えていませんか？<br>(正)>=(誤)=><br>"+"エラーは"+ '<strong style="font-size: 20px; color:#f00;">'+ kode_num_len+"</strong>" +"<ruby>行目<rt>ぎょうめ</rt></ruby>にあります。";
+            }
+            if(error_loop == true){
+              document.getElementById("input_in").innerHTML="loop文のエラーです。<br>loopのつけ忘れ、break文のつけ忘れを起こしていませんか？<br>"+"エラーは"+ '<strong style="font-size: 20px; color:#f00;">'+ kode_num_len+"</strong>" +"<ruby>行目<rt>ぎょうめ</rt></ruby>にあります。";
+            }
+            if(error_window == true){
+              document.getElementById("input_in").innerHTML="open windowで開けていますか？<br>書いてない可能性があります。<br>"+"エラーは"+ '<strong style="font-size: 20px; color:#f00;">'+ kode_num_len+"</strong>" +"<ruby>行目<rt>ぎょうめ</rt></ruby>にあります。";
+            }
+            if(error_curve == true){
+              document.getElementById("input_in").innerHTML="curve文のエラーです。<br>endにしていませんか？curve文はcloseです。<br>"+"エラーは"+ '<strong style="font-size: 20px; color:#f00;">'+ kode_num_len+"</strong>" +"<ruby>行目<rt>ぎょうめ</rt></ruby>にあります。";
+            }
         }
       },
       '文字の色はそのまま':{
         'class' : 'gray',
         'action' : function(){
           document.getElementById("textare").style.color="#000";
-          document.getElementById("input_in").innerHTML="エラーは"+ '<strong style="font-size: 20px; color:#f00;">'+ kode_num_len+"</strong>" +"<ruby>行目<rt>ぎょうめ</rt></ruby>にあります。";
+          document.getElementById("input_in").innerHTML="エラーは"+ '<strong style="font-size: 20px; color:#f00;">'+ kode_num_len+"</strong>" +"<ruby>行目<rt>ぎょうめ</rt></ruby>にあります。<br>仕様上2.1行目など小数点が出る場合があります。2.1行目ならば2行目のエラーを指しています";
           if(error_string == true){
             document.getElementById("input_in").innerHTML="<ruby>文字列<rt>もじれつ</rt></ruby>がおかしいかもしれません。<ruby>見直<rt>みなお</rt></ruby>しましょう<br>"+"エラーは"+ '<strong style="font-size: 20px; color:#f00;">'+ kode_num_len+"</strong>" +"<ruby>行目<rt>ぎょうめ</rt></ruby>にあります。";
           }
@@ -145,6 +189,39 @@ socket.on("data",function(d){                                            　　�
           }
           if(error_0xff == true){
             document.getElementById("input_in").innerHTML="<ruby>文字<rt>もじ</rt></ruby>のどこかが<ruby>全角<rt>ぜんかく</rt></ruby>になっています。<ruby>再確認<rt>さいかくにん</rt></ruby>して<ruby>修正<rt>しゅうせい</rt></ruby>して<ruby>下<rt>くだ</rt></ruby>さい<br>"+"エラーは"+ '<strong style="font-size: 20px; color:#f00;">'+ kode_num_len+"</strong>" +"<ruby>行目<rt>ぎょうめ</rt></ruby>にあります。";
+          }
+          if(error_elsif == true){
+            document.getElementById("input_in").innerHTML="elsif文のエラーです。<br>最初のif文のthenのつけ忘れ、elsif文の間違いがあるかもしれません<br>"+"エラーは"+ '<strong style="font-size: 20px; color:#f00;">'+ kode_num_len+"</strong>" +"<ruby>行目<rt>ぎょうめ</rt></ruby>にあります。";
+          }
+          if(error_endif == true){
+            document.getElementById("input_in").innerHTML="end if文のエラーです。<br>最後に書き忘れていませんか？<br>"+"エラーは"+ '<strong style="font-size: 20px; color:#f00;">'+ kode_num_len+"</strong>" +"<ruby>行目<rt>ぎょうめ</rt></ruby>にあります。";
+          }
+          if(error_color == true){
+            document.getElementById("input_in").innerHTML="color文のエラーです。<br>colorの中の色はあっていますか？colorのつづりを間違えていませんか？<br>"+"エラーは"+ '<strong style="font-size: 20px; color:#f00;">'+ kode_num_len+"</strong>" +"<ruby>行目<rt>ぎょうめ</rt></ruby>にあります。";
+          }
+          if(error_next == true){
+            document.getElementById("input_in").innerHTML="next文のエラーです。<br>next文を最後に付け忘れていませんか？<br>"+"エラーは"+ '<strong style="font-size: 20px; color:#f00;">'+ kode_num_len+"</strong>" +"<ruby>行目<rt>ぎょうめ</rt></ruby>にあります。";
+          }
+          if(error_match == true){
+            document.getElementById("input_in").innerHTML="for文のエラーです。<br>変数がfor文とnext文でうまく合っていないようです。確認しましょう。<br>"+"エラーは"+ '<strong style="font-size: 20px; color:#f00;">'+ kode_num_len+"</strong>" +"<ruby>行目<rt>ぎょうめ</rt></ruby>にあります。";
+          }
+          if(error_else == true){
+            document.getElementById("input_in").innerHTML="else文のエラーです。<br>if文の最初にthenのつけ忘れ、else文の間違いがあるかもしれません。<br>"+"エラーは"+ '<strong style="font-size: 20px; color:#f00;">'+ kode_num_len+"</strong>" +"<ruby>行目<rt>ぎょうめ</rt></ruby>にあります。";
+          }
+          if(error_kagi1 == true){
+            document.getElementById("input_in").innerHTML="不等号を書く順番を間違えていませんか？<br>(正)<=(誤)=<。<br>"+"エラーは"+ '<strong style="font-size: 20px; color:#f00;">'+ kode_num_len+"</strong>" +"<ruby>行目<rt>ぎょうめ</rt></ruby>にあります。";
+          }
+          if(error_kagi2 == true){
+            document.getElementById("input_in").innerHTML="不等号を書く順番を間違えていませんか？<br>(正)>=(誤)=>。<br>"+"エラーは"+ '<strong style="font-size: 20px; color:#f00;">'+ kode_num_len+"</strong>" +"<ruby>行目<rt>ぎょうめ</rt></ruby>にあります。";
+          }
+          if(error_loop == true){
+            document.getElementById("input_in").innerHTML="loop文のエラーです。<br>loopのつけ忘れ、break文のつけ忘れを起こしていませんか？<br>"+"エラーは"+ '<strong style="font-size: 20px; color:#f00;">'+ kode_num_len+"</strong>" +"<ruby>行目<rt>ぎょうめ</rt></ruby>にあります。";
+          }
+          if(error_window == true){
+            document.getElementById("input_in").innerHTML="open windowで開けていますか？<br>書いてない可能性があります。<br>"+"エラーは"+ '<strong style="font-size: 20px; color:#f00;">'+ kode_num_len+"</strong>" +"<ruby>行目<rt>ぎょうめ</rt></ruby>にあります。";
+          }
+          if(error_curve == true){
+            document.getElementById("input_in").innerHTML="curve文のエラーです。<br>endにしていませんか？curve文はcloseです。<br>"+"エラーは"+ '<strong style="font-size: 20px; color:#f00;">'+ kode_num_len+"</strong>" +"<ruby>行目<rt>ぎょうめ</rt></ruby>にあります。";
           }
 
         }
@@ -168,10 +245,18 @@ $("#run").on("click",function(){　　　　　　　　　　　　　　　　
   const str=source_data;
   let ret;
   const siki = /input/.test(str);                                               //テキスト内の文字列(今回はinput)を識別(成功はtrue,失敗はfalseを返す)するため正規表現を用いた。
+  const siki2 = /clear screen/.test(str);
+  const siki3 = /error/.test(str);
   //console.log(siki);
   if(siki == true){
     //console.log("input取得しました")
-    document.getElementById("input_in").innerHTML="input文が実行されたので、上の端末をクリックして直接入力してください(半角入力じゃないとエラーがでるよ)"
+    document.getElementById("input_in").innerHTML="input文が実行されたので、右下の端末をクリックして直接入力してください(半角入力じゃないとエラーがでるよ)"
+  }
+  else if(siki2 == true){
+    document.getElementById("input_in").innerHTML="clear screen文が実行されました。端末をクリックし、Enterキーを押すと終了します。"
+  }
+  else if(siki3 == true){
+    document.getElementById("input_in").innerHTML="error文が実行されました。勝手にエラーメッセージがでますが無視してokです。"
   }
   else{
     document.getElementById("input_in").innerHTML=default2_text;
@@ -427,6 +512,19 @@ function zenkaku_hankaku() {
         return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
     });
     TA.value = ta2;
+
+    $.confirm({
+      title: '全角になっている空白を半角にしました',
+      content: 'プログラムの文章の全角を半角にしているわけではありません。あくまで空白の部分のみです。<br><br>',
+      boxWidth: '30%',
+      useBootstrap: false,
+      type: 'red',
+      typeAnimated: true,
+      buttons: {
+          ok : function(){
+          }
+      }
+  });
 }
 
 //------------------------------------------------------------------------------

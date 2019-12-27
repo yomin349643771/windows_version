@@ -54,9 +54,9 @@
             <li><a href="#" class="menunu">その他ページ<span>▼</span></a>
               <div class="menunu3">
                 <ul>
-                    <li><a href="http://192.168.11.2:8040" target="_blank" id="page1" class="page1" style="margin:20px;"><ruby><rb>初学者用</rb><rp>(</rp><rt>しょがくしゃよう</rt><rp>)</rp></ruby>ページ</a></li>
+                    <li><a href="https://wdb1.ace.ec.saga-u.ac.jp/yabasic/basic_study/study.html" target="_blank" id="page1" class="page1" style="margin:20px;"><ruby><rb>初学者用</rb><rp>(</rp><rt>しょがくしゃよう</rt><rp>)</rp></ruby>ページ</a></li>
                     <li><a href="http://www.yabasic.de/" target="_blank" id="page1" class="page1" style="margin:20px;"><ruby><rb>公式</rb><rp>(</rp><rt>こうしき</rt><rp>)</rp></ruby>サイト</a></li>
-                    <li><a href="http://192.168.11.2:8124" target="_blank" id="page1" class="page1" style="margin: 20px;">EV3(<ruby><rb>理科総合用</rb><rp>(</rp><rt>りかそうごうよう</rt><rp>)</rp></ruby>)</a></li>
+                    <li><a href="http://192.168.11.2:8124" target="_blank" id="page1" class="page1" style="margin: 20px;">LEGO EV3</a></li>
                 </ul>
               </div>
             </li>
@@ -116,14 +116,44 @@
   <select href="#" id="kousiki" name="kousiki" class="square_btn_4"><i class="fa fa-caret-right"></i>
     <option disabled selected="selected2">公式集</option>
     <!-- プログラミングをやる上で必要不可欠なもの(教科で使えるものの)学習をピックアップしておく -->
-    <option value="a">&nbsp; 1. 公式①</option>   <!--重要!!!   optionの数を増やしたら、ajax.jsにあるopt_defo[]の[]の数字を変えること!!! -->
-    <option value="b">&nbsp; 2. 公式②</option>
-    <option value="c">&nbsp; 3. 公式③</option>
-    <option value="d">&nbsp; 4. 公式③-1</option>
-    <option value="e">&nbsp; 5. 公式④</option>
+    <option disabled>______________</option>
+    <option disabled selected="selected2">基本構文</option>
+    <option value="a">&nbsp; 1. print</option>   <!--重要!!!   optionの数を増やしたら、ajax.jsにあるopt_defo[]の[]の数字を変えること!!! -->
+    <option value="b">&nbsp; 2. print②</option>
+    <option value="c">&nbsp; 3. color</option>
+    <option value="d">&nbsp; 3-1. 色単語</option>
+    <option value="e">&nbsp; 4. コメント</option>
+    <option value="f">&nbsp; 5. 改行</option>
+    <option value="g">&nbsp; 6. for①</option>
+    <option value="h">&nbsp; 6-1. ng変数</option>
+    <option value="i">&nbsp; 7. for②</option>
+    <option value="j">&nbsp; 8. for③</option>
+    <option value="k">&nbsp; 9. input①</option>
+    <option value="l">&nbsp; 10. input②</option>
+    <option value="m">&nbsp; 11. if①</option>
+    <option value="n">&nbsp; 12. 不等号</option>
+    <option value="o">&nbsp; 13. if②</option>
+    <option value="p">&nbsp; 14. if③</option>
+    <option value="q">&nbsp; 15. if④</option>
+    <option value="r">&nbsp; 16. loop</option>
+    <option value="s">&nbsp; 17. break</option>
+    <option value="t">&nbsp; 18. switch</option>
+    <option disabled>______________</option>
+    <option disabled selected="selected2">グラフィック</option>
+    <option value="u">&nbsp; 19. window</option>
+    <option value="v">&nbsp; 20. color</option>
+    <option value="w">&nbsp; 20-1. RGB値</option>
+    <option value="x">&nbsp; 21. text</option>
+    <option value="y">&nbsp; 22. backcolor</option>
+    <option value="z">&nbsp; 23. circle</option>
+    <option value="aa">&nbsp; 24. box</option>
+    <option value="bb">&nbsp; 25. triangle</option>
+    <option value="cc">&nbsp; 26. fill</option>
+    <option value="dd">&nbsp; 27. clear</option>
+    <option value="ee">&nbsp; 28. curve</option>
   </select>
   <select href="#" id="kadai" name="kadai" class="square_btn_4"><i class="fa fa-caret-right"></i>
-    <option disabled selected="selected3">問題集(テスト中)</option>
+    <option disabled selected="selected3">問題集(制作中)</option>
     <option value="a">&nbsp; 問題①</option>
     <option value="b">&nbsp; 問題②</option>
     <option value="c">&nbsp; 問題③</option>
@@ -175,23 +205,31 @@
             <option value="1">&nbsp; デモ</option>
 
             <option disabled>____________________________________________</option>
-            <option disabled>(製作者の)テスト</option>
+            <option disabled>(製作者の)テストプログラム</option>
             <option value="2">&nbsp; print文(改行)</option>
             <option value="3">&nbsp; キャラクターコード取得</option>
             <option value="4">&nbsp; 足し算してみよう</option>
+            <option value="5">&nbsp; hello world</option>
+            <option value="6">&nbsp; foo1</option>
+            <option value="7">&nbsp; foo2</option>
+            <option value="8">&nbsp; loop</option>
+            <option value="9">&nbsp; for+open window</option>
+            <option value="10">&nbsp; dim</option>
+            <option value="11">&nbsp; left</option>
+            <option value="12">&nbsp; sin cos tan</option>
+            <option value="13">&nbsp; system</option>
+            <option value="14">&nbsp; test_sample</option>
 
 
             <option disabled>____________________________________________</option>
-            <option disabled>やってみよう(学習サイト連動)</option>
+            <option disabled>便利なプログラム構文</option>
 
-            <option value="5">&nbsp; 2-3.ターミナル</option>
-            <option value="6">&nbsp; test5</option>
-            <option value="7">&nbsp; test6</option>
-            <option value="samples/print1.txt">&nbsp; test7</option>
-            <option value="sample.hangman">&nbsp; Hangman</option>
-            <option value="sample.raindrops">&nbsp; Catch the Raindrop</option>
-            <option value="sample.jot">&nbsp; JOT (</option>
-            <option value="sample.miniindy">&nbsp; Mini Indy </option>
+            <option value="15">&nbsp; clear screen</option>
+            <option value="16">&nbsp; open window</option>
+            <option value="17">&nbsp; circle</option>
+            <option value="18">&nbsp; box</option>
+            <option value="19">&nbsp; triangle</option>
+            <option value="20">&nbsp; color</option>
           </select>
         </form>
         </div>
@@ -202,7 +240,9 @@
       </div>
     </div>
 </div>
+<div class="term_class">
 <div id="terminal" class="xterm"><span class="title-tape3">実行結果</span></div>
+</div>
 </div>
 
 
