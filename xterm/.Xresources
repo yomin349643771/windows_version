@@ -1,0 +1,9 @@
+XTerm*faceName:'Monospace'
+XTerm*faceSize : 15
+XTerm*locale : true
+XTerm*selectToClipboard : true
+XTerm*forcePackedFont : false
+XTerm*saveLines : 2000
+XTerm*cjkWidth : true
+XTerm*rightScrollBar : true
+XTerm*scrollBar : true
