@@ -1,0 +1,5 @@
+boxはrectangleとも書けます<br>
+(意味は全く同じ)<br><br>
+省略系でrectとも書けます
+
+

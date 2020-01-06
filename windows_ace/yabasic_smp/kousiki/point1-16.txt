@@ -1,0 +1,7 @@
+do<br>
+  r=r+0.1<br>
+  print r<br>
+  if (r=2) break<br>
+loop<br><br>
+
+0.1のように小数点の数もできます

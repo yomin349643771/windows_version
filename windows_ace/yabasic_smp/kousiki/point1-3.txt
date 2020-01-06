@@ -1,0 +1,7 @@
+clear screen
+
+print color("green") "green"
+
+print color("blue") "blue"
+
+print color("white") "white"

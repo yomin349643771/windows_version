@@ -1,0 +1,14 @@
+input "Please enter a single digit: " n<br>
+switch n<br>
+  case 0:print "zero":break<br>
+  case 1:print "one":break<br>
+  case 2:print "two":break<br>
+  case 3:print "three":break<br>
+  case 4:print "four":break<br>
+  case 5:case 6: case 7:case 8:case 9<br>
+    print "Much !":break<br>
+  default:print "Hey ! That was more than a single digit !"<br>
+end switch <br><br>
+
+複数同じcaseの結果にしたいときに<br>
+まとめることもできるので便利です。

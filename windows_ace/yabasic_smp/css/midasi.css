@@ -1,0 +1,98 @@
+/*形とかは仮*/
+.midasi1{
+	 position: relative;
+	 color: #111;
+	 background: #F7BE81;
+	 font-size: 2.5vmin;
+	 line-height: 1;
+	 margin: 5px 20px 10px -8px;
+	 padding: 14px 5px 10px 70px;
+	 border-radius: 22px 22px 22px 22px;
+	 background-image: url("../img/in3.png");
+   background-size: 5vw 5vw; /* 画像サイズ */
+   background-repeat: no-repeat; /* 繰り返し表示オフ */
+ }
+.midasi1:before{
+	 content: "";
+	 position: absolute;
+   /* background: #eee; */
+	 top: 10%;
+	 left: 14px;
+	 margin-top :-10px;
+	 height: 6vh;
+	 width: 4vw;
+	 border-radius: 50%;/*まるくする*/
+	 /* box-shadow: 1px 1px 1px #777 inset; */
+}
+.midasi1:after{
+	 content: "";
+	 position: absolute;
+	 /* border: 27px solid #F7BE81;
+	 border-right-color: transparent; */
+}
+.midasi2{
+	 position: relative;
+	 color: #111;
+	 background: #F7BE81;
+	 font-size: 20px;
+	 line-height: 1;
+	 margin: 5px 20px 10px -8px;
+	 padding: 14px 5px 10px 70px;
+	 border-radius: 22px 22px 22px 22px;
+ }
+.midasi2:before{
+	 content: "";
+	 position: absolute;
+   /* background: #eee; */
+	 background-image: url("../img/tori1.png");
+   background-size: 50px 60px; /* 画像サイズ */
+   background-repeat: no-repeat; /* 繰り返し表示オフ */
+	 top: 10%;
+	 left: 14px;
+	 margin-top :-10px;
+	 height: 60px;
+	 width: 50px;
+	 border-radius: 50%;/*まるくする*/
+	 /* box-shadow: 1px 1px 1px #777 inset; */
+}
+.midasi2:after{
+	 content: "";
+	 position: absolute;
+}
+.midasi3{
+	 position: relative;
+	 color: #111;
+	 background: #F7BE81;
+	 font-size: 20px;
+	 line-height: 1;
+	 margin: 5px 20px 10px -8px;
+	 padding: 14px 5px 10px 70px;
+	 border-radius: 22px 22px 22px 22px;
+ }
+.midasi3:before{
+	 content: "";
+	 position: absolute;
+   /* background: #eee; */
+	 background-image: url("../img/tori2.png");
+   background-size: 50px 60px; /* 画像サイズ */
+   background-repeat: no-repeat; /* 繰り返し表示オフ */
+	 top: 10%;
+	 left: 14px;
+	 margin-top :-10px;
+	 height: 60px;
+	 width: 50px;
+	 border-radius: 50%;/*まるくする*/
+	 /* box-shadow: 1px 1px 1px #777 inset; */
+}
+.midasi3:after{
+	 content: "";
+	 position: absolute;
+}
+/* 横並びにする奴 */
+/* .wrapper{
+	display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+} */

@@ -1,0 +1,14 @@
+input "Please enter another number: " b<br>
+if (b<0) then<br>
+  print "less than 0"<br>
+else<br>
+  if (b<=10) then<br>
+    print "between 0 and 10"<br>
+  else<br>
+    if (b<=20) then<br>
+      print "between 11 and 20"<br>
+    else<br>
+      print "over 20"<br>
+    endif<br>
+  endif<br>
+endif

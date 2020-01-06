@@ -1,0 +1,11 @@
+open window 200,200<br><br>
+
+for n=1 to 2000<br>
+  x=ran(200)<br>
+  y=ran(200)<br>
+  fill circle x,y,10<br>
+  clear fill circle x,y,8<br>
+next n<br><br>
+
+ranは本章では学びませんが<br>
+ランダムで円を表示したりとランダム性をもたせるのに重宝します。

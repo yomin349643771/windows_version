@@ -1,0 +1,6 @@
+for a=200 to 400 step 10<br>
+  open window a,a<br>
+next a<br><br>
+
+for文でウィンドウ操作もできますが<br>
+バグの原因になりうるので推奨はしません

@@ -1,0 +1,7 @@
+print asin(sin(pi/2))
+print acos(cos(pi/2))
+print atan(tan(pi/2))
+
+print asin(1)
+print acos(1)
+print atan(1)

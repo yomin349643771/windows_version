@@ -1,0 +1,1 @@
+msiexec /i node-v10.16.0-x64.msi

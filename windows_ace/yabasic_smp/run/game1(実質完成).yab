@@ -1,0 +1,38 @@
+clear screen
+x=10
+label again
+
+print at(x, 8) "￥"
+print at(0, 23)
+for k=0 to 5000:next
+in$=inkey$
+inx=asc(in$)
+if(inx=108 and x>1)then x=x-1
+endif
+if(inx=114 and x<77)then x=x+1
+endif
+
+
+for i=0 to 55
+ for j=0 to i
+    print "0";
+next j
+ print "                      ";
+  for l=0 to 55-i
+    print "0";
+  next l
+print
+  for k=0 to 5000:next
+next i
+for i=0 to 55
+  for j=0 to 55-i
+    print "0";
+  next j
+print "                      ";
+ for l=0 to i
+    print "0";
+next l
+  print
+ for k=0 to 5000:next
+next i
+goto again

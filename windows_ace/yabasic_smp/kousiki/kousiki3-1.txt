@@ -1,0 +1,10 @@
+4.print③-1
+
+colorの英単語
+
+黒      black
+白      white
+赤      red
+青      blue
+緑      green
+黄色    yellow

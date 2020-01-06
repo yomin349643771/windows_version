@@ -1,0 +1,13 @@
+clear screen
+x=40
+ax=1
+label again
+print at(x, 8) "￥"
+print at(0, 23)
+for k=0 to 5000:next
+if(x<30)then ax=1
+endif
+if(x>50)then ax=-1
+endif
+x=x+ax
+goto again

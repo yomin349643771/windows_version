@@ -1,0 +1,15 @@
+18.switch文
+
+input n
+switch n
+  case 1 : print "one" :break
+  case 2 : print "two" :break
+  case 3 : print "three" :break
+  default : "error"
+end switch
+
+スイッチ文は選択です。
+caseで決めた数字を入力するとprint文が実行します
+caseで書いていないものはdefaule文が実行されます。
+
+caseのあとのbreak文とend文を忘れずに！

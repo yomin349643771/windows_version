@@ -1,0 +1,18 @@
+clear screen
+label again
+for i=0 to 10
+ for j=0 to i
+    print "0";
+  next j
+  print
+  for k=0 to 5000:next
+next i
+for i=0 to 10
+  for j=0 to 10-i
+    print "0";
+  next j
+  print
+ for k=0 to 5000:next
+next i
+if(inkey$(1)="q") exit
+goto again

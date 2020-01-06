@@ -1,0 +1,25 @@
+rem
+rem This program adds two matrices elementwise
+rem
+
+dim a(10,20),b(10,20),c(10,20)
+
+rem initialization of the arrays a() and b()
+for y=1 to 10:for x=1 to 20
+  a(y,x)=int(ran(4)):b(y,x)=int(ran(4))
+next x:next y
+
+matadd(a(),b(),c())
+
+print "Result:"
+for x=1 to 20
+  for y=10 to 1 step -1
+    print c(y,x)," ";
+  next y
+  print
+next x
+
+sub matadd(m1(),m2(),r())
+end sub
+
+

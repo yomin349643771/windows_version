@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>BASIC実行・学習サイト</title>
+<link rel="stylesheet" href="css/stylesheet.css">                                                       <!-- css -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>            <!-- ajax -->
+<script src="/socket.io/socket.io.js"></script>                                                     <!-- socket.io -->
+<script src="//cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"></script>
+<script src="https://cdn.rawgit.com/inexorabletash/polyfill/v0.1.29/keyboard.js"></script>          <!-- キーボード(必要ないかも) -->
+<script src="//code.jquery.com/jquery-2.1.3.min.js"></script>                                       <!-- jQuery -->
+<link rel="stylesheet" href="../node_modules/xterm/dist/xterm.css" />                               <!-- xterm -->
+<script src="../node_modules/xterm/dist/xterm.js"></script>                                         <!-- xterm -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+<script src="js/bcralnit.js"></script>
+<!-- <script src="jquery.overlay.js"></script> -->
+<script src="../node_modules/intro.js/intro.js"></script>
+<script src="js/go.js"></script>
+<!--<script src="goSamples.js"></script>-->
+<script src="js/go_test.js"></script>
+<!-- <script type="text/javascript" src="js/jquery.cookie.js"></script> -->
+<!-- <script type="text/javascript" src="js/jquery.autosave.js"></script> -->
+<!-- <script type="text/javascript" src="./jquery.confirm/jquery.confirm.js" charset="utf-8"></script>    confirmをアレンジ -->
+<!-- <link rel="stylesheet" href="./jquery.confirm/jquery.confirm.css" type="text/css" />                 confirmをアレンジ -->
+</head>
+
+<body>
+      <font face="Times New Roman">
+        <header>
+          <ul id="flip" class="cp_navi">
+            <a class="cp_moji">Yet Another Basic programming</a>
+            <li><a href="#" class="menunu">便利ツール<span>▼</span></a>
+              <div class="menunu1">
+                <ul>
+                    <li><img class="gazo1" src="img/catn1-1.png"></li>
+                    <li><a class='speech-bubble'><i class="moji1">便利なツール<br>クリックして使えるよ</i></a></li>
+                    <li><a id="reset" class="btn-social-square btn-social-square--reset" title="プログラムのソースコードを全部消すよ">リセット</a></li>
+                    <li><a class="btn-social-square btn-social-square--zenhan" onclick="zenkaku_hankaku()" title="実行ボタンをクリックする前に使うと便利かも!?">空白を埋める</a></li>
+                    <li><a class="btn-social-square btn-social-square--hintkesu" onclick="hint_kesu()" title="プログラムのヒントを消すよ">ヒント非表示</a></li>
+                </ul>
+              </div>
+            </li>
+            <li><a href="#" class="menunu">フローチャート<span>▼</span></a>
+              <div class="menunu2">
+                <ul>
+                  <li><img src="img/flow.png" alt="">
+                  <input type="text" value="開始" class="flow1"></li>
+                  <li>テスト中...まだ構成中です</li>
+                </ul>
+              </div>
+            </li>
+            <li><a href="#" class="menunu">その他ページ<span>▼</span></a>
+              <div class="menunu3">
+                <ul>
+                    <li><a href="https://wdb1.ace.ec.saga-u.ac.jp/yabasic/basic_study/study.html" target="_blank" id="page1" class="page1" style="margin:20px;"><ruby><rb>初学者用</rb><rp>(</rp><rt>しょがくしゃよう</rt><rp>)</rp></ruby>ページ</a></li>
+                    <li><a href="http://www.yabasic.de/" target="_blank" id="page1" class="page1" style="margin:20px;"><ruby><rb>公式</rb><rp>(</rp><rt>こうしき</rt><rp>)</rp></ruby>サイト</a></li>
+                    <li><a href="http://192.168.11.2:8124" target="_blank" id="page1" class="page1" style="margin: 20px;">LEGO EV3</a></li>
+                </ul>
+              </div>
+            </li>
+            <li><a href="https://wdb1.ace.ec.saga-u.ac.jp/ques_system/student/login_2.php" target="_blank" class="menunu"><i class="fas fa-check-circle">アンケート</i></a></li>
+            <li><a href="#" class="menunu" onclick="window_reload()"><i class="fas fa-redo-alt">ページ更新</i></a></li>
+            <!--チュートリアルボタンは最後に推奨  -->
+            <a  id="tutorial" class="tutorial" onclick="startIntro();"><img src="img/mark_syoshinsya.png" class="tutoimg"> <span><ruby><rb>初</rb><rp>(</rp><rt>はじ</rt><rp>)</rp></ruby>めての<ruby><rb>方</rb><rp>(</rp><rt>かた</rt><rp>)</rp></ruby>へ</span></a>
+          </ul>
+        </header>
+        <div id="title" class="title">
+          <div class="kihon">
+          <div class="kinou_bottom">
+          </div>
+          </div>
+        </div>
+      </font>
+<!-- <div class="prog1" style="width:250px; height:1800px;">テスト中(フローチャートシステム) -->
+<!--<br> ここをフローチャートのドロップアンドドラッグで自由にきめてから、プログラミングをしてもらうなんていう発想(ボタンの奴は例として出すだけでも参考にはなるのでいらないことはなさそう) -->
+<!-- <div class="">
+  <img src="img/flow.png" alt="">
+  <input type="text" value="開始" class="flow1">.btn-social-square--zenhan{
+  /* display: inline-block; */
+  text-decoration: none;
+  width: 150px;
+  margin:2px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 23px;
+  color:white;
+  border-radius: 12px;
+  text-align: center;
+  overflow: hidden;
+  font-weight: bold;
+  transition: .3s;
+  background: #7bda72;
+  margin-top: -1vw;
+  margin-left: 1vw;
+  cursor: pointer;
+}
+</div>
+<button type="button" name="tyato_click" class="tyato_click" onclick="showFlotyato()">クリックで表示
+<img id="tyato0" class="tyato0" src="img/inu3.png">
+</button>
+<div id="line1" class="dradrobox1" ondragover="DragOver()" ondrop="Drop()"></div>
+<br>
+<input type="button" draggable="true" value="フローチャート①" onclick="tyato1.src='img/dia2.jpg'">
+<img src="" name="tyato1">
+
+
+</div> -->
+<div class="container-fluid prog2">
+<p style="font-size:15px;">※このページはFirefox(推奨)またはChrome、IEで動作させてください(Safariは出来ません)</p>
+
+<div class="row">
+<div id="teach" class="col-xs-12 col-xl-4 teach">
+<form id="wakaru" name="wakaru" class="wakaru" method="post" enctype="text/plain">
+  <select href="#" id="kousiki" name="kousiki" class="square_btn_4"><i class="fa fa-caret-right"></i>
+    <option disabled selected="selected2">公式集</option>
+    <!-- プログラミングをやる上で必要不可欠なもの(教科で使えるものの)学習をピックアップしておく -->
+    <option disabled>______________</option>
+    <option disabled selected="selected2">基本構文</option>
+    <option value="a">&nbsp; 1. print</option>   <!--重要!!!   optionの数を増やしたら、ajax.jsにあるopt_defo[]の[]の数字を変えること!!! -->
+    <option value="b">&nbsp; 2. print②</option>
+    <option value="c">&nbsp; 3. color</option>
+    <option value="d">&nbsp; 3-1. 色単語</option>
+    <option value="e">&nbsp; 4. コメント</option>
+    <option value="f">&nbsp; 5. 改行</option>
+    <option value="g">&nbsp; 6. for①</option>
+    <option value="h">&nbsp; 6-1. ng変数</option>
+    <option value="i">&nbsp; 7. for②</option>
+    <option value="j">&nbsp; 8. for③</option>
+    <option value="k">&nbsp; 9. input①</option>
+    <option value="l">&nbsp; 10. input②</option>
+    <option value="m">&nbsp; 11. if①</option>
+    <option value="n">&nbsp; 12. 不等号</option>
+    <option value="o">&nbsp; 13. if②</option>
+    <option value="p">&nbsp; 14. if③</option>
+    <option value="q">&nbsp; 15. if④</option>
+    <option value="r">&nbsp; 16. loop</option>
+    <option value="s">&nbsp; 17. break</option>
+    <option value="t">&nbsp; 18. switch</option>
+    <option disabled>______________</option>
+    <option disabled selected="selected2">グラフィック</option>
+    <option value="u">&nbsp; 19. window</option>
+    <option value="v">&nbsp; 20. color</option>
+    <option value="w">&nbsp; 20-1. RGB値</option>
+    <option value="x">&nbsp; 21. text</option>
+    <option value="y">&nbsp; 22. backcolor</option>
+    <option value="z">&nbsp; 23. circle</option>
+    <option value="aa">&nbsp; 24. box</option>
+    <option value="bb">&nbsp; 25. triangle</option>
+    <option value="cc">&nbsp; 26. fill</option>
+    <option value="dd">&nbsp; 27. clear</option>
+    <option value="ee">&nbsp; 28. curve</option>
+  </select>
+  <select href="#" id="kadai" name="kadai" class="square_btn_4"><i class="fa fa-caret-right"></i>
+    <option disabled selected="selected3">問題集(制作中)</option>
+    <option value="a">&nbsp; 問題①</option>
+    <option value="b">&nbsp; 問題②</option>
+    <option value="c">&nbsp; 問題③</option>
+  </select>
+  <!-- <select href="#" id="tyukyu" name="tyukyu" class="square_btn_4"><i class="fa fa-caret-right"></i>
+    <option disabled selected="selected2">公式集</option>
+    <option value="b">&nbsp; 2. 算数</option>
+    <option value="c">&nbsp; 3. 理科</option>
+    <option value="d">&nbsp; 4. 英語</option>
+    <option value="e">&nbsp; 5. 総合</option>
+  </select> -->
+  <div id="osieru" class="osieru" onMouseDown="return false;" onSelectStart="return false">
+    <span class="kokuban"></span>
+    <p id="osierun">ここで<ruby>学習<rt>がくしゅう</rt></ruby>しよう(<ruby>上<rt>うえ</rt></ruby>のボタンを<ruby>押<rt>お</rt></ruby>して<ruby>選択<rt>せんたく</rt></ruby>しよう)</p>
+  </div>
+
+  </form>
+  <div id="inudayo">
+<img id="irasuto" name="irasuto" class="irasuto1" src="img/inu3.png" border=0 onMouseOver=this.src="img/inu4.png" onMouseOut=this.src="img/inu3.png" onMouseDown="return false;" onSelectStart="return false"></img>
+  <div id="input_in" class="input_in"></div><!-- ふきだし -->
+</div>
+  <!-- <div id="point" class="point" onMouseDown="return false;" onSelectStart="return false">
+    <span class="bord"></span>
+    <p id="ponit">ここは<ruby>簡単<rt>かんたん</rt></ruby>に<ruby>説明<rt>せつめい</rt></ruby>やヒントを<ruby>表示<rt>ひょうじ</rt></ruby>します。</p>
+    <img id="irasuto" name="irasuto" class="irasuto2" src="img/sen.png"></img>
+  </div> -->
+</div>
+
+
+
+
+
+      <!-- <div id="frame" class="jframe" style="float: left; margin: 5px;" tabIndex="0">                    結果を表示させたい -->
+        <!-- <div id="jscreen" class="jwrapper"> -->
+<!-- <canvas id="cv" width="720" height="500"></canvas> -->
+        <!-- </div> -->
+      <!-- </div> -->
+<div class="col-xs-12 col-xl-8">
+  <h1 id="midasi1-1" class="midasi1"><a><ruby><rb>実行</rb><rp>(</rp><rt>じっこう</rt><rp>)</rp></ruby><ruby><rb>結果</rb><rp>(</rp><rt>けっか</rt><rp>)</rp></ruby><ruby><rb>画面</rb><rp>(</rp><rt>がめん</rt><rp>)</rp></ruby>・プログラムを<ruby><rb>書</rb><rp>(</rp><rt>か</rt><rp>)</rp></ruby>く</a></h1>
+<div id="main1" class="main1">
+      <div id="sub" class="wrapper">
+
+        <form id="submission" name="test" method="post" enctype="text/plain" >
+          <a href="#" id="run" class="square_btn_1" onMouseDown="return false;" onSelectStart="return false"><i class=""></i> <ruby><rb>実行</rb><rp>(</rp><rt>じっこう</rt><rp>)</rp></ruby></a>      <!--rubyはふりがなを付ける -->
+          <a href="#" id="save" class="square_btn_2" onMouseDown="return false;" onSelectStart="return false"><i class="far fa-save" type="submit" formaction="web_basic/yoshiga/source.yab"></i> <ruby><rb>保存</rb><rp>(</rp><rt>ほぞん</rt><rp>)</rp></ruby> </a>
+          <a href="#" id="aload" class="square_btn_2" onMouseDown="return false;" onSelectStart="return false"><i class="far fa-folder-open"></i> <ruby><rb>開</rb><rp>(</rp><rt>ひら</rt><rp>)</rp></ruby>く </a>
+          <select href="#" id="samp" name="samp" class="square_btn_3"><i class="fa fa-caret-right"></i>                                                         <!-- 選択してもらう（デモ例文等） -->
+            <option disabled selected="selected">サンプルを開く</option>
+            <option value="1">&nbsp; デモ</option>
+
+            <option disabled>____________________________________________</option>
+            <option disabled>(製作者の)テストプログラム</option>
+            <option value="2">&nbsp; print文(改行)</option>
+            <option value="3">&nbsp; キャラクターコード取得</option>
+            <option value="4">&nbsp; 足し算してみよう</option>
+            <option value="5">&nbsp; hello world</option>
+            <option value="6">&nbsp; foo1</option>
+            <option value="7">&nbsp; foo2</option>
+            <option value="8">&nbsp; loop</option>
+            <option value="9">&nbsp; for+open window</option>
+            <option value="10">&nbsp; dim</option>
+            <option value="11">&nbsp; left</option>
+            <option value="12">&nbsp; sin cos tan</option>
+            <option value="13">&nbsp; system</option>
+            <option value="14">&nbsp; test_sample</option>
+
+
+            <option disabled>____________________________________________</option>
+            <option disabled>便利なプログラム構文</option>
+
+            <option value="15">&nbsp; clear screen</option>
+            <option value="16">&nbsp; open window</option>
+            <option value="17">&nbsp; circle</option>
+            <option value="18">&nbsp; box</option>
+            <option value="19">&nbsp; triangle</option>
+            <option value="20">&nbsp; color</option>
+          </select>
+        </form>
+        </div>
+        <div class="row">
+        <div class="yoko">
+        <div class="col-md-7"><textarea id="textare" name="textare" class="source" spellcheck="false"></textarea></div> <!--(注意)テキストエリアは特定の文字や背景色を変えるのは不可能に近い -->
+        <div id="hint" class="hint556"><p id="osirase556"></p><p id="hint556"></p></div>
+      </div>
+    </div>
+</div>
+<div class="term_class">
+<div id="terminal" class="xterm"><span class="title-tape3">実行結果</span></div>
+</div>
+</div>
+
+
+
+
+
+      <!-- <div id="main3" class="main3"> -->
+
+        <!-- <div id="sample">
+          <div style="width: 100%; display: flex; justify-content: space-between">
+            <div id="myPaletteDiv" style="width: 100px; margin-right: 2px; background-color: whitesmoke; border: solid 1px black;"></div>
+            <div id="myDiagramDiv" style="flex-grow: 1; height: 750px; border: solid 1px black; background-color:#fff;"></div>
+          </div>
+          <button id="SaveButton" onclick="save()">Save</button>
+          <button onclick="load()">Load</button>
+            <textarea id="mySavedModel" style="width:100%;height:300px">
+          { "class": "go.GraphLinksModel",
+            "linkFromPortIdProperty": "fromPort",
+            "linkToPortIdProperty": "toPort",
+            "nodeDataArray": [
+          {"category":"Comment", "loc":"360 -10", "text":"Kookie Brittle", "key":-13},
+          {"key":-1, "category":"Start", "loc":"175 0", "text":"Start"},
+          {"key":0, "loc":"-5 75", "text":"Preheat oven to 375 F"},
+          {"key":1, "loc":"175 100", "text":"In a bowl, blend: 1 cup margarine, 1.5 teaspoon vanilla, 1 teaspoon salt"},
+          {"key":2, "loc":"175 200", "text":"Gradually beat in 1 cup sugar and 2 cups sifted flour"},
+          {"key":3, "loc":"175 290", "text":"Mix in 6 oz (1 cup) Nestle's Semi-Sweet Chocolate Morsels"},
+          {"key":4, "loc":"175 380", "text":"Press evenly into ungreased 15x10x1 pan"},
+          {"key":5, "loc":"355 85", "text":"Finely chop 1/2 cup of your choice of nuts"},
+          {"key":6, "loc":"175 450", "text":"Sprinkle nuts on top"},
+          {"key":7, "loc":"175 515", "text":"Bake for 25 minutes and let cool"},
+          {"key":8, "loc":"175 585", "text":"Cut into rectangular grid"},
+          {"key":-2, "category":"End", "loc":"175 660", "text":"Enjoy!"}
+           ],
+            "linkDataArray": [
+          {"from":1, "to":2, "fromPort":"B", "toPort":"T"},
+          {"from":2, "to":3, "fromPort":"B", "toPort":"T"},
+          {"from":3, "to":4, "fromPort":"B", "toPort":"T"},
+          {"from":4, "to":6, "fromPort":"B", "toPort":"T"},
+          {"from":6, "to":7, "fromPort":"B", "toPort":"T"},
+          {"from":7, "to":8, "fromPort":"B", "toPort":"T"},
+          {"from":8, "to":-2, "fromPort":"B", "toPort":"T"},
+          {"from":-1, "to":0, "fromPort":"B", "toPort":"T"},
+          {"from":-1, "to":1, "fromPort":"B", "toPort":"T"},
+          {"from":-1, "to":5, "fromPort":"B", "toPort":"T"},
+          {"from":5, "to":4, "fromPort":"B", "toPort":"T"},
+          {"from":0, "to":4, "fromPort":"B", "toPort":"T"}
+           ]}
+            </textarea>
+        <button onclick="printDiagram()">Print Diagram Using SVG</button>
+        </div> -->
+
+
+      <!-- </div> -->
+</div>
+<br><br><br><br><br><!-- ちょっと下は隙間がほしい(後で別に何かを設ける予定、メルアドとか研究室名とか？) -->
+  <!-- <div id="sample-result"></div> ここはいらないけど一応  -->
+
+</div>
+</body>
+<script src="js/client2.js"></script>
+<script src="js/ajax.js"></script>
+<script src="js/web_confirm.js"></script>
+</html>

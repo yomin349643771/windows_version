@@ -1,0 +1,8 @@
+input a<br>
+if(a<=1)then<br>
+  print "aは1以下"<br>
+elsif(a<=5)<br>
+  print "aは1より大きく5以下"<br>
+else<br>
+  print "aは5より大きい"<br>
+end if

@@ -1,0 +1,9 @@
+input "Please answer yes or no : " a$
+l = len(a$) : a$ = lower$(a$) : print "Your answer is ";
+if(left$("yes", l)=a$ and l>=1) then
+  print "yes"
+elsif(left$("no", l)=a$ and l>=1) then
+  print "no"
+else
+  print "??"
+end if

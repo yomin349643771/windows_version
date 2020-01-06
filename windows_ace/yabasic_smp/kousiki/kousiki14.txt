@@ -1,0 +1,13 @@
+14.if文③
+
+if(a=1)then
+  print "..."
+elsif(a=2)
+  print "..."
+else
+  print "..."
+
+分岐先のif文はelsifとなります。
+最後にelse文で分岐終了です。
+
+else文には条件式を書かないようにしましょう

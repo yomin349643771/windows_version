@@ -1,0 +1,9 @@
+open window 200,200<br>
+do<br>
+ i=i+0.2<br>
+ fill triangle 100+20*i,100+20*i,100-20*i,100-20*i,100-80*i,100+80*i<br>
+  sleep 0.1<br>
+loop<br><br>
+
+sleepは本章では学びませんが<br>
+ループを時間で制御できて楽しめます。

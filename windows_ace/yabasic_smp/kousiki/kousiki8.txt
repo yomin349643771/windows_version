@@ -1,0 +1,9 @@
+8.for文③
+forを複数書いた場合
+
+for x=1 to 10 step 1
+  for y=1 to 10 step 2
+    z=x+y
+    print z
+  next y
+next x

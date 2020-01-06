@@ -1,0 +1,8 @@
+open window 255,255<br>
+for x=10 to 235 step 10:for y=10 to 235 step 10<br>
+  	colour x,y,0<br>
+  	fill rectangle x,y,x+10,y+10<br>
+next y:next x<br><br>
+
+変数を使って座標だけでなく<br>
+色も変化させることができるのがミソでもあります。
