@@ -1,9 +1,5 @@
 //&cls&node %0 %1&pause > nul&exit
- var express = require("express");
- var app = express();
- var http = require("http").Server(app);
- http.listen(8080);
-const io = require("socket.io")(http);                                            //ソケット通信。v2.0.3。vはversionのこと
+const io = require("socket.io")(8080);                                            //ソケット通信。v2.0.3。vはversionのこと
 // const exec = require('child_process').exec;                                       //execのシェルコマンドを用いるためのモジュール
 const fs = require("fs");                                                         //ファイルの読み書きを行うためのモジュール
 //const expressWs = require("express-ws")(app);
@@ -49,7 +45,7 @@ socket.on("source",function(d){
     socket.on('disconnect', () => term.destroy());
   }else if(os_hanbetu=="win32"){
     var pty = require("node-pty");
-    var term = pty.spawn('C:\\Users\\student\\Downloads\\windows_version-master\\windows_ace\\yabasic.exe',["source.yab"],{//use名書き換える(studentの部分)
+    var term = pty.spawn('C:\\Users\\students\\Downloads\\windows_version-master\\windows_ace\\yabasic.exe',["source.yab"],{//use名書き換える(studentの部分)
       handleFlowControl: true,
       name:"xterm-256color",
       cols:80,
