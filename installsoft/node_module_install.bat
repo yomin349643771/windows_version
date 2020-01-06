@@ -1,3 +1,3 @@
-cd ..
+cd ../windows_ace
 mkdir .\node_modules
-npm install gojs intro.js pty.js socket.io xterm jquery-confirm node-pty
+npm install gojs intro.js pty.js socket.io jquery-confirm node-pty
